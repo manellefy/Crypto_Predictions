@@ -3,6 +3,16 @@ import pandas as pd
 import os
 #charger les donnÃ©es .csv dans une DataFrame 
 
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format='%(message)s')
+logger = logging.getLogger()
+
+try:
+    logger.info(some_string)
+except UnicodeEncodeError:
+    logger.info(some_string.encode('utf-8', 'ignore').decode('utf-8', 'ignore'))
+
 # Chemin du répertoire contenant les données
 data_dir = 'C:\\Users\\asus\\Desktop\\Crypto_Predictions\\data'
 folders = [f for f in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, f))]
