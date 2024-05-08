@@ -9,7 +9,7 @@ folders = [f for f in os.listdir(data_dir) if os.path.isdir(os.path.join(data_di
 folders.sort(key=lambda x: os.path.getctime(os.path.join(data_dir, x)), reverse=True)
 recent_folder = folders[0]
 btc_data_path = os.path.join(data_dir, recent_folder, 'BNB_data.csv')
-df = pd.read_csv(btc_data_path)
+df = pd.read_csv(btc_data_path, encoding='utf-8')
 
 
 
@@ -80,7 +80,8 @@ model_gru_lstm.add(LSTM(10)) #32
 model_gru_lstm.add(Dense(features.shape[1]))
 model_gru_lstm.compile(loss="mean_absolute_error", optimizer="adam")
 
-model_gru_lstm.fit(X_train, y_train, epochs=100, batch_size=64)
+model_gru_lstm.fit(X_train, y_train, epochs=100, batch_size=64, verbose=0)
+
 
 
 def save_model(model, model_name):
