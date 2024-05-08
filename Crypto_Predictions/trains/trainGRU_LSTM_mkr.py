@@ -77,7 +77,7 @@ model_gru_lstm.add(GRU(10, return_sequences=True, input_shape=(X_train.shape[1],
 model_gru_lstm.add(LSTM(10)) #32
 model_gru_lstm.add(Dense(features.shape[1]))
 model_gru_lstm.compile(loss="mean_absolute_error", optimizer="adam")
-model_gru_lstm.fit(X_train, y_train, epochs=100, batch_size=64)
+model_gru_lstm.fit(X_train, y_train, epochs=100, batch_size=64,verbose=0)
 
 def save_model(model, model_name):
     # Chemin du répertoire contenant les sauvegardes
