@@ -4,7 +4,8 @@ import os
 #charger les donnÃ©es .csv dans une DataFrame 
 
 import logging
-
+# Explicitly handle strings with utf-8 encoding
+some_string = some_potential_unicode_string.encode('utf-8').decode('utf-8')
 logging.basicConfig(level=logging.DEBUG, format='%(message)s')
 logger = logging.getLogger()
 
